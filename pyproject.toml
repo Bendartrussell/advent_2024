@@ -1,0 +1,17 @@
+[project]
+name = "advent-2024"
+version = "0.1.0"
+description = "Advent of Code 2024 in Python"
+readme = "README.md"
+authors = [
+    { name = "Benjamin Russell", email = "bendartrussell@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = []
+
+[project.scripts]
+main = "advent_2024:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
