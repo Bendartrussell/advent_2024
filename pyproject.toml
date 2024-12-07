@@ -7,7 +7,9 @@ authors = [
     { name = "Benjamin Russell", email = "bendartrussell@gmail.com" }
 ]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "pytest>=8.3.4",
+]
 
 [project.scripts]
 main = "advent_2024:main"

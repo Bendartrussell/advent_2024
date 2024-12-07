@@ -5,18 +5,16 @@ from pathlib import Path
 IN_PATH = Path.cwd() / "src/advent_2024/day1/data/input.txt"
 
 
-def part1() -> None:
+def part1() -> int:
     left, right = parse_lists(IN_PATH)
     total_diff = sum_of_distances(left, right)
-    print(total_diff)
-    assert total_diff == 1530215
+    return total_diff
 
 
-def part2() -> None:
+def part2() -> int:
     left, right = parse_lists(IN_PATH)
     score = similarity_score(left, right)
-    print(score)
-    assert score == 26800609
+    return score
 
 
 def parse_lists(path: Path) -> tuple[list[int], list[int]]:
