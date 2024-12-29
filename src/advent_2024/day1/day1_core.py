@@ -1,31 +1,26 @@
 from collections import Counter
-from pathlib import Path
 
 
-IN_PATH = Path.cwd() / "src/advent_2024/day1/data/input.txt"
-
-
-def part1() -> int:
-    left, right = parse_lists(IN_PATH)
+def part1(data: str) -> int:
+    left, right = parse_lists(data)
     total_diff = sum_of_distances(left, right)
     return total_diff
 
 
-def part2() -> int:
-    left, right = parse_lists(IN_PATH)
+def part2(data: str) -> int:
+    left, right = parse_lists(data)
     score = similarity_score(left, right)
     return score
 
 
-def parse_lists(path: Path) -> tuple[list[int], list[int]]:
+def parse_lists(data: str) -> tuple[list[int], list[int]]:
     left: list[int] = []
     right: list[int] = []
 
-    with path.open() as in_file:
-        for line in in_file:
-            a, b = line.strip().split()
-            left.append(int(a))
-            right.append(int(b))
+    for line in data.strip().split("\n"):
+        a, b = line.strip().split()
+        left.append(int(a))
+        right.append(int(b))
 
     return (left, right)
 
