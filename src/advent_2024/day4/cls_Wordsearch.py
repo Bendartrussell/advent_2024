@@ -24,6 +24,13 @@ DIRECTIONS = (
     Coord(1, -1),
 )
 
+CROSSMAS_VARIANTS = (  # corner letters unrolled
+    ["M", "M", "S", "S"],
+    ["M", "S", "S", "M"],
+    ["S", "S", "M", "M"],
+    ["S", "M", "M", "S"],
+)
+
 
 class Wordsearch:
     def __init__(self, data: str):
@@ -70,3 +77,12 @@ class Wordsearch:
                 count += 1
         
         return count
+    
+    
+    def is_crossmas_at(self, center_coord: Coord) -> bool:
+        search_coords = [center_coord + direc for direc in DIRECTIONS[1::2]]
+        if any(not self.is_in_range(sc) for sc in search_coords):
+            return False
+        
+        code = [self.at(coord) for coord in search_coords]
+        return code in CROSSMAS_VARIANTS

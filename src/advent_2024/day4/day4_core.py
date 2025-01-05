@@ -8,4 +8,6 @@ def part1(data: str) -> int:
 
 
 def part2(data: str) -> int:
-    return 1
+    ws = Wordsearch(data)
+    center_coords = ws.find_coords("A")
+    return sum(ws.is_crossmas_at(coord) for coord in center_coords)
